@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Matrix Registration Operations API",
+        "description": "",
+        "termsOfService": ""
+    },
+    "servers": [
+        "\/registerhttp:\/\/localhost:8008\/_matrix\/client\/api\/v1"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "RegistrationFlows": {
+                "type": "object",
+                "properties": {
+                    "flows": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "RegistrationInfo": {
+                "type": "object",
+                "properties": {
+                    "stages": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "type": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "RegistrationResult": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "user_id": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "next": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "session": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "RegistrationSubmission": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "session": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "_registration_type_defined_keys_": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}
