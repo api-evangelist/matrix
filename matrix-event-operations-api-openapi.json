@@ -1,0 +1,123 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Matrix Event Operations API",
+        "description": "",
+        "termsOfService": ""
+    },
+    "servers": [
+        "\/eventshttp:\/\/localhost:8008\/_matrix\/client\/api\/v1"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "PaginationChunk": {
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "end": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "chunk": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "Event": {
+                "type": "object",
+                "properties": {
+                    "event_id": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "room_id": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "PublicRoomInfo": {
+                "type": "object",
+                "properties": {
+                    "aliases": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "name": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "room_id": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "topic": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "PublicRoomsPaginationChunk": {
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "end": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "chunk": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "InitialSyncResponse": {
+                "type": "object",
+                "properties": {
+                    "end": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "presence": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "rooms": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "InitialSyncRoomData": {
+                "type": "object",
+                "properties": {
+                    "membership": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "room_id": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "messages": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "state": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}
