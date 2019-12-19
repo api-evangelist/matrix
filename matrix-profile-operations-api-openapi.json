@@ -1,0 +1,35 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Matrix Profile Operations API",
+        "description": "",
+        "termsOfService": ""
+    },
+    "servers": [
+        "\/profilehttp:\/\/localhost:8008\/_matrix\/client\/api\/v1"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "DisplayName": {
+                "type": "object",
+                "properties": {
+                    "displayname": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "AvatarUrl": {
+                "type": "object",
+                "properties": {
+                    "avatar_url": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}
