@@ -1,0 +1,100 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Login Operations",
+        "description": "",
+        "termsOfService": ""
+    },
+    "servers": [
+        "\/loginhttp:\/\/localhost:8008\/_matrix\/client\/api\/v1"
+    ],
+    "paths": {
+        "\/login": {
+            "get": {
+                "summary": "Get the login mechanism to use when logging in.",
+                "description": "All login stages MUST be mentioned if there is >1 login type.",
+                "operationId": "GetLoginInfo",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Submit a login action.",
+                "description": "If this is part of a multi-stage login, there MUST be a session key.",
+                "operationId": "SubmitLogin",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "A login submission"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LoginFlows": {
+                "type": "object",
+                "properties": {
+                    "flows": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "LoginInfo": {
+                "type": "object",
+                "properties": {
+                    "stages": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "type": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "LoginResult": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "user_id": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "next": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "session": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "LoginSubmission": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "session": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "_login_type_defined_keys_": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}
