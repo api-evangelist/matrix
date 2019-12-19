@@ -1,0 +1,26 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Matrix Content Repository Operations API",
+        "description": "",
+        "termsOfService": ""
+    },
+    "servers": [
+        "\/media\/v1\/http:\/\/localhost:8008\/_matrix"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "ContentUploadResponse": {
+                "type": "object",
+                "properties": {
+                    "content_uri": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            }
+        }
+    }
+}
