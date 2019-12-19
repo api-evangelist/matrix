@@ -1,0 +1,67 @@
+{
+    "id": "7a4011f988feae226655bf04035dd54d",
+    "name": "Login Operations",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "374b91552de7543e080dd7732933adfc",
+            "name": "Get the login mechanism to use when logging in.",
+            "url": "\/loginhttp:\/\/localhost:8008\/_matrix\/client\/api\/v1\/login",
+            "description": "All login stages MUST be mentioned if there is >1 login type.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "7a4011f988feae226655bf04035dd54d",
+            "rawModeData": ""
+        },
+        {
+            "id": "36697aca0b6d6032719100c771145a8a",
+            "name": "Submit a login action.",
+            "url": "\/loginhttp:\/\/localhost:8008\/_matrix\/client\/api\/v1\/login",
+            "description": "If this is part of a multi-stage login, there MUST be a session key.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "body",
+                    "description": "A login submission",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "7a4011f988feae226655bf04035dd54d",
+            "rawModeData": ""
+        }
+    ]
+}
