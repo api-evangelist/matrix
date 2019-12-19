@@ -1,0 +1,194 @@
+{
+    "name": "Matrix",
+    "description": "An open standard for decentralised secure communication. Please support at https:\/\/t.co\/oZd61hbMx3! | bridged to https:\/\/t.co\/ujgzEXDSa4",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+    "tags": [
+        "api provider",
+        "have api",
+        "networks",
+        "relative data",
+        "service api",
+        "telecommunications"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Login Operations",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/login-operations.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/login-operations-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/login-operations-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Registration Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-registration-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-registration-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Content Repository Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-content-repository-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-content-repository-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Directory Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-directory-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-directory-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Profile Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-profile-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-profile-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Presence Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-presence-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-presence-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix Event Operations API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-event-operations-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-event-operations-api-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Matrix",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/11769-matrix.jpg",
+            "humanURL": "http:\/\/matrix.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "http:\/\/matrix.org\/blog\/posts\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/matrix.org\/blog\/comments\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/matrix-org"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/matrix-org"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/matrixdotorg"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/matrix.org\/"
+        }
+    ]
+}
