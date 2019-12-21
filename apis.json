@@ -10,8 +10,8 @@
         "service api",
         "telecommunications"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-21",
+    "modified": "2019-12-21",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -25,15 +25,19 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/login-operations.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/login-operations-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/login-operations-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/loginradius\/master\/login-operations-openapi.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/login-operations.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/login-operations-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/loginradius\/master\/login-operations-postman-collection.json"
                 }
             ]
         },
@@ -47,11 +51,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-registration-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-registration-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-registration-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-registration-operations-api.json"
                 }
             ]
         },
@@ -65,11 +69,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-content-repository-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-content-repository-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-content-repository-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-content-repository-operations-api.json"
                 }
             ]
         },
@@ -83,11 +87,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-directory-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-directory-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-directory-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-directory-operations-api.json"
                 }
             ]
         },
@@ -101,11 +105,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-profile-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-profile-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-profile-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-profile-operations-api.json"
                 }
             ]
         },
@@ -119,11 +123,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-presence-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-presence-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-presence-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-presence-operations-api.json"
                 }
             ]
         },
@@ -137,11 +141,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-event-operations-api.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-event-operations-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-event-operations-api-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix-event-operations-api.json"
                 }
             ]
         },
@@ -155,17 +159,21 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/matrix\/master\/matrix-openapi.json"
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/matrix-openapi.json"
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/matrix.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Blog",
             "url": "http:\/\/matrix.org\/blog\/posts\/"
