@@ -1,0 +1,127 @@
+aid: matrix
+name: Matrix
+description: >-
+  Matrix is an open standard and decentralized protocol for real-time
+  communication, providing federated messaging, voice, video, and IoT
+  signalling across independently operated homeservers. The Matrix
+  specification defines several REST APIs (Client-Server, Server-Server,
+  Application Service, Identity Service, and Push Gateway) that interoperate
+  across the federation. Authentication is typically performed via Bearer
+  access tokens, with newer flows using OAuth 2.0.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Messaging
+  - Decentralized
+  - Federated
+  - Open Standard
+  - Real-Time Communication
+  - VoIP
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/matrix/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: matrix:client-server-api
+    name: Matrix Client-Server API
+    description: >-
+      REST API used by Matrix clients to communicate with a homeserver,
+      covering login, room creation and management, message sending, sync,
+      device management, end-to-end encryption, and push notifications.
+      Authentication uses Bearer access tokens issued by the homeserver, with
+      OAuth 2.0 supported in newer versions.
+    humanURL: https://spec.matrix.org/latest/client-server-api/
+    baseURL: https://matrix.org/_matrix/client
+    tags:
+      - Client-Server
+      - Messaging
+      - Rooms
+      - Sync
+      - Encryption
+    properties:
+      - type: Documentation
+        url: https://spec.matrix.org/latest/client-server-api/
+      - type: OpenAPI Source
+        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/client-server
+  - aid: matrix:server-server-api
+    name: Matrix Server-Server (Federation) API
+    description: >-
+      Federation API that lets Matrix homeservers exchange events, presence,
+      and key information with one another over signed JSON requests.
+    humanURL: https://spec.matrix.org/latest/server-server-api/
+    baseURL: https://matrix.org/_matrix/federation
+    tags:
+      - Federation
+      - Server-Server
+      - Decentralized
+    properties:
+      - type: Documentation
+        url: https://spec.matrix.org/latest/server-server-api/
+      - type: OpenAPI Source
+        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/server-server
+  - aid: matrix:application-service-api
+    name: Matrix Application Service API
+    description: >-
+      API used by application services (bridges, bots) to integrate with a
+      homeserver, claim namespaces, and exchange events.
+    humanURL: https://spec.matrix.org/latest/application-service-api/
+    baseURL: https://matrix.org/_matrix/app
+    tags:
+      - Bridges
+      - Bots
+      - Integrations
+    properties:
+      - type: Documentation
+        url: https://spec.matrix.org/latest/application-service-api/
+      - type: OpenAPI Source
+        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/application-service
+  - aid: matrix:identity-service-api
+    name: Matrix Identity Service API
+    description: >-
+      API for looking up Matrix user IDs from third-party identifiers such as
+      email addresses and phone numbers via federated identity servers.
+    humanURL: https://spec.matrix.org/latest/identity-service-api/
+    baseURL: https://matrix.org/_matrix/identity
+    tags:
+      - Identity
+      - Lookup
+      - 3PID
+    properties:
+      - type: Documentation
+        url: https://spec.matrix.org/latest/identity-service-api/
+      - type: OpenAPI Source
+        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/identity
+  - aid: matrix:push-gateway-api
+    name: Matrix Push Gateway API
+    description: >-
+      Push Gateway API homeservers use to deliver notifications to mobile
+      push services on behalf of Matrix clients.
+    humanURL: https://spec.matrix.org/latest/push-gateway-api/
+    baseURL: https://matrix.org/_matrix/push
+    tags:
+      - Push Notifications
+      - Mobile
+    properties:
+      - type: Documentation
+        url: https://spec.matrix.org/latest/push-gateway-api/
+      - type: OpenAPI Source
+        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
+
+common:
+  - type: Website
+    url: https://matrix.org
+  - type: Documentation
+    url: https://spec.matrix.org/latest/
+  - type: Specification Repository
+    url: https://github.com/matrix-org/matrix-spec
+  - type: GitHub Organization
+    url: https://github.com/matrix-org
+  - type: Sign Up
+    url: https://matrix.org/try-matrix/
+  - type: Support
+    url: https://matrix.org/support/
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
