@@ -115,9 +115,9 @@ common:
     url: https://spec.matrix.org/latest/
   - type: Specification Repository
     url: https://github.com/matrix-org/matrix-spec
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/matrix-org
-  - type: Sign Up
+  - type: SignUp
     url: https://matrix.org/try-matrix/
   - type: Support
     url: https://matrix.org/support/
