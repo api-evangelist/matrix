@@ -109,6 +109,8 @@ apis:
         url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/matrix-org
   - type: Website
     url: https://matrix.org
   - type: Documentation
