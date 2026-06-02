@@ -1,0 +1,660 @@
+asyncapi: 2.6.0
+info:
+  title: Matrix Client-Server Sync API
+  version: v3
+  description: >-
+    AsyncAPI description of the Matrix Client-Server sync mechanism.
+
+    Matrix delivers real-time events to clients through the `/_matrix/client/v3/sync`
+    endpoint, which is a long-lived HTTPS GET request (HTTP long-polling). Clients
+    open a request with a `since` continuation token and a server-side `timeout`;
+    the homeserver holds the connection open until new events are available or the
+    timeout elapses, then returns a JSON document describing incremental state and
+    timeline changes. The `next_batch` value returned in each response is used as
+    the `since` value on the next request to continue the stream.
+
+    The official Matrix specification (v1.11) does NOT define a WebSocket or
+    Server-Sent Events (SSE) transport for sync. The spec states: "The mandatory
+    baseline for client-server communication in Matrix is exchanging JSON objects
+    over HTTP APIs. More efficient transports may be specified in future as
+    optional extensions." This AsyncAPI document therefore models only the
+    documented HTTPS long-poll transport. Implementation-specific extensions such
+    as MSC3575 Sliding Sync remain HTTP-based and are not modeled here.
+
+    Event types covered by `/sync` include room timeline events (m.room.message,
+    m.room.encrypted, m.room.member, m.room.redaction, m.reaction, m.room.name,
+    m.room.topic, m.room.avatar), ephemeral events (m.typing, m.receipt),
+    presence events (m.presence), to-device events, account data, and
+    device-list / one-time-key updates relevant to end-to-end encryption.
+  contact:
+    name: Matrix.org Foundation
+    url: https://matrix.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  externalDocs:
+    description: Matrix Client-Server API specification
+    url: https://spec.matrix.org/latest/client-server-api/#syncing
+defaultContentType: application/json
+servers:
+  homeserver:
+    url: '{homeserver}/_matrix/client'
+    protocol: https
+    description: >-
+      Matrix homeserver Client-Server API root. The sync endpoint is served
+      over HTTPS using long-polling; the homeserver holds the request open
+      until new events are available or the timeout elapses.
+    variables:
+      homeserver:
+        description: Fully qualified hostname of the Matrix homeserver.
+        default: matrix.org
+    security:
+      - bearerAuth: []
+      - accessTokenQuery: []
+channels:
+  /v3/sync:
+    description: >-
+      Long-polling sync channel. A client opens an authenticated HTTPS GET
+      request to `/_matrix/client/v3/sync` with a `since` token and an
+      optional `timeout` (milliseconds). The homeserver holds the connection
+      open until at least one event is available for the client or until the
+      timeout is reached, then responds with a JSON SyncResponse. The
+      `next_batch` value is supplied as `since` on the subsequent request to
+      resume the stream. Transport is explicitly HTTPS long-polling; the
+      Matrix specification does not currently define a WebSocket or SSE
+      alternative.
+    bindings:
+      http:
+        type: request
+        method: GET
+        bindingVersion: 0.3.0
+    parameters:
+      timeout:
+        description: >-
+          Maximum time in milliseconds for the server to wait for events
+          before responding. Default 0 (return immediately). Long-polling
+          clients typically use 30000 ms.
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          default: 0
+      since:
+        description: >-
+          Pagination token from a previous sync's `next_batch`. Omit on the
+          initial sync to receive a snapshot.
+        schema:
+          type: string
+      filter:
+        description: >-
+          Filter ID returned by `POST /v3/user/{userId}/filter`, or an inline
+          JSON-encoded Filter object that limits which events the server
+          returns.
+        schema:
+          type: string
+      full_state:
+        description: >-
+          If true, all state events known to the server are returned even if
+          `since` is non-empty. Default false.
+        schema:
+          type: boolean
+          default: false
+      set_presence:
+        description: >-
+          Presence state to set for the calling user for the duration of the
+          request. One of `offline`, `online`, or `unavailable`. Default
+          `online`.
+        schema:
+          type: string
+          enum:
+            - offline
+            - online
+            - unavailable
+          default: online
+      use_state_after:
+        description: >-
+          If true, the server returns room state at the END of the timeline
+          (as `state_after`) rather than at the start (as `state`). Default
+          false. Added in a recent client-server spec version.
+        schema:
+          type: boolean
+          default: false
+    subscribe:
+      operationId: sync
+      summary: Receive incremental sync updates over HTTPS long-poll
+      description: >-
+        Receives a SyncResponse describing all new events and state changes
+        for the calling user since the supplied `since` token. The response
+        is delivered as the body of the long-polled HTTPS GET request.
+      bindings:
+        http:
+          bindingVersion: 0.3.0
+      message:
+        $ref: '#/components/messages/SyncResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+      description: >-
+        Homeserver-issued access token supplied as `Authorization: Bearer
+        <access_token>`.
+    accessTokenQuery:
+      type: httpApiKey
+      in: query
+      name: access_token
+      description: >-
+        Legacy authentication mode that passes the access token as the
+        `access_token` query parameter. Bearer header is preferred.
+  messages:
+    SyncResponse:
+      name: SyncResponse
+      title: Matrix /sync response
+      summary: Incremental snapshot of new events and state for the calling user.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SyncResponse'
+  schemas:
+    SyncResponse:
+      type: object
+      required:
+        - next_batch
+      properties:
+        next_batch:
+          type: string
+          description: Token to supply as `since` on the next sync request.
+        rooms:
+          $ref: '#/components/schemas/Rooms'
+        presence:
+          $ref: '#/components/schemas/PresenceUpdates'
+        account_data:
+          $ref: '#/components/schemas/AccountData'
+        to_device:
+          $ref: '#/components/schemas/ToDevice'
+        device_lists:
+          $ref: '#/components/schemas/DeviceLists'
+        device_one_time_keys_count:
+          type: object
+          additionalProperties:
+            type: integer
+          description: >-
+            Per-algorithm count of one-time keys the server currently holds
+            for this device, used by E2EE clients to top up keys.
+        device_unused_fallback_key_types:
+          type: array
+          items:
+            type: string
+          description: List of unused fallback key algorithms held by the server.
+    Rooms:
+      type: object
+      properties:
+        join:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/JoinedRoom'
+          description: Rooms the user has joined, keyed by room ID.
+        invite:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/InvitedRoom'
+          description: Rooms the user has been invited to.
+        knock:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/KnockedRoom'
+          description: Rooms the user has knocked on.
+        leave:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LeftRoom'
+          description: Rooms the user has left or been banned from.
+    JoinedRoom:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/RoomSummary'
+        state:
+          $ref: '#/components/schemas/StateEvents'
+        state_after:
+          $ref: '#/components/schemas/StateEvents'
+        timeline:
+          $ref: '#/components/schemas/Timeline'
+        ephemeral:
+          $ref: '#/components/schemas/Ephemeral'
+        account_data:
+          $ref: '#/components/schemas/AccountData'
+        unread_notifications:
+          $ref: '#/components/schemas/UnreadNotificationCounts'
+        unread_thread_notifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UnreadNotificationCounts'
+    InvitedRoom:
+      type: object
+      properties:
+        invite_state:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/StrippedStateEvent'
+    KnockedRoom:
+      type: object
+      properties:
+        knock_state:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/StrippedStateEvent'
+    LeftRoom:
+      type: object
+      properties:
+        state:
+          $ref: '#/components/schemas/StateEvents'
+        state_after:
+          $ref: '#/components/schemas/StateEvents'
+        timeline:
+          $ref: '#/components/schemas/Timeline'
+        account_data:
+          $ref: '#/components/schemas/AccountData'
+    RoomSummary:
+      type: object
+      properties:
+        m.heroes:
+          type: array
+          items:
+            type: string
+          description: Member user IDs used to summarize the room.
+        m.joined_member_count:
+          type: integer
+        m.invited_member_count:
+          type: integer
+    StateEvents:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientEvent'
+    Timeline:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientEvent'
+        limited:
+          type: boolean
+          description: True if the server omitted events because the timeline was truncated.
+        prev_batch:
+          type: string
+          description: Token for fetching earlier messages with `/messages`.
+    Ephemeral:
+      type: object
+      description: >-
+        Ephemeral events not stored in the room history. Includes typing and
+        receipt events.
+      properties:
+        events:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TypingEvent'
+              - $ref: '#/components/schemas/ReceiptEvent'
+    AccountData:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountDataEvent'
+    PresenceUpdates:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/PresenceEvent'
+    ToDevice:
+      type: object
+      description: >-
+        Direct device-to-device messages, primarily used by end-to-end
+        encryption for key exchange (e.g. m.room_key, m.room_key_request,
+        m.key.verification.*).
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToDeviceEvent'
+    DeviceLists:
+      type: object
+      description: >-
+        Lists of users whose device lists have changed since the last sync,
+        used by E2EE clients to refetch device keys.
+      properties:
+        changed:
+          type: array
+          items:
+            type: string
+        left:
+          type: array
+          items:
+            type: string
+    UnreadNotificationCounts:
+      type: object
+      properties:
+        highlight_count:
+          type: integer
+        notification_count:
+          type: integer
+    ClientEvent:
+      type: object
+      description: >-
+        Generic Matrix client event envelope. The `type` field selects the
+        concrete event schema; see specific event subtypes below.
+      required:
+        - type
+        - event_id
+        - sender
+        - origin_server_ts
+      properties:
+        type:
+          type: string
+          description: >-
+            Event type, e.g. `m.room.message`, `m.room.member`,
+            `m.room.encrypted`, `m.room.redaction`, `m.reaction`,
+            `m.room.name`, `m.room.topic`, `m.room.avatar`,
+            `m.room.create`, `m.room.join_rules`, `m.room.power_levels`,
+            `m.room.canonical_alias`, `m.room.history_visibility`,
+            `m.room.guest_access`, `m.room.encryption`, `m.space.child`,
+            `m.space.parent`.
+        event_id:
+          type: string
+        sender:
+          type: string
+        origin_server_ts:
+          type: integer
+          format: int64
+        room_id:
+          type: string
+        state_key:
+          type: string
+        content:
+          type: object
+        unsigned:
+          type: object
+          properties:
+            age:
+              type: integer
+            redacted_because:
+              type: object
+            transaction_id:
+              type: string
+            prev_content:
+              type: object
+            replaces_state:
+              type: string
+      oneOf:
+        - $ref: '#/components/schemas/RoomMessageEvent'
+        - $ref: '#/components/schemas/RoomEncryptedEvent'
+        - $ref: '#/components/schemas/RoomMemberEvent'
+        - $ref: '#/components/schemas/RoomRedactionEvent'
+        - $ref: '#/components/schemas/ReactionEvent'
+        - $ref: '#/components/schemas/RoomNameEvent'
+        - $ref: '#/components/schemas/RoomTopicEvent'
+        - $ref: '#/components/schemas/RoomAvatarEvent'
+    StrippedStateEvent:
+      type: object
+      description: Stripped state event used in invite_state and knock_state.
+      required:
+        - type
+        - state_key
+        - sender
+        - content
+      properties:
+        type:
+          type: string
+        state_key:
+          type: string
+        sender:
+          type: string
+        content:
+          type: object
+    RoomMessageEvent:
+      type: object
+      description: m.room.message - a message posted in a room.
+      properties:
+        type:
+          const: m.room.message
+        content:
+          type: object
+          properties:
+            msgtype:
+              type: string
+              description: >-
+                One of m.text, m.emote, m.notice, m.image, m.file, m.audio,
+                m.video, m.location.
+            body:
+              type: string
+            format:
+              type: string
+            formatted_body:
+              type: string
+            url:
+              type: string
+            info:
+              type: object
+            'm.relates_to':
+              type: object
+    RoomEncryptedEvent:
+      type: object
+      description: m.room.encrypted - an end-to-end encrypted event payload.
+      properties:
+        type:
+          const: m.room.encrypted
+        content:
+          type: object
+          properties:
+            algorithm:
+              type: string
+              description: e.g. m.megolm.v1.aes-sha2 or m.olm.v1.curve25519-aes-sha2.
+            ciphertext:
+              oneOf:
+                - type: string
+                - type: object
+            sender_key:
+              type: string
+            device_id:
+              type: string
+            session_id:
+              type: string
+    RoomMemberEvent:
+      type: object
+      description: m.room.member - a membership change in a room.
+      properties:
+        type:
+          const: m.room.member
+        state_key:
+          type: string
+          description: The user ID whose membership is described.
+        content:
+          type: object
+          properties:
+            membership:
+              type: string
+              enum:
+                - invite
+                - join
+                - knock
+                - leave
+                - ban
+            displayname:
+              type: string
+            avatar_url:
+              type: string
+            reason:
+              type: string
+            is_direct:
+              type: boolean
+            third_party_invite:
+              type: object
+            join_authorised_via_users_server:
+              type: string
+    RoomRedactionEvent:
+      type: object
+      description: m.room.redaction - redacts another event.
+      properties:
+        type:
+          const: m.room.redaction
+        redacts:
+          type: string
+        content:
+          type: object
+          properties:
+            reason:
+              type: string
+            redacts:
+              type: string
+    ReactionEvent:
+      type: object
+      description: >-
+        m.reaction - an annotation/reaction event using an m.annotation
+        relation to a target event.
+      properties:
+        type:
+          const: m.reaction
+        content:
+          type: object
+          properties:
+            'm.relates_to':
+              type: object
+              properties:
+                rel_type:
+                  const: m.annotation
+                event_id:
+                  type: string
+                key:
+                  type: string
+    RoomNameEvent:
+      type: object
+      description: m.room.name - updates the room's display name.
+      properties:
+        type:
+          const: m.room.name
+        content:
+          type: object
+          properties:
+            name:
+              type: string
+    RoomTopicEvent:
+      type: object
+      description: m.room.topic - updates the room's topic.
+      properties:
+        type:
+          const: m.room.topic
+        content:
+          type: object
+          properties:
+            topic:
+              type: string
+    RoomAvatarEvent:
+      type: object
+      description: m.room.avatar - updates the room's avatar.
+      properties:
+        type:
+          const: m.room.avatar
+        content:
+          type: object
+          properties:
+            url:
+              type: string
+            info:
+              type: object
+    TypingEvent:
+      type: object
+      description: m.typing - ephemeral list of users currently typing in a room.
+      properties:
+        type:
+          const: m.typing
+        content:
+          type: object
+          properties:
+            user_ids:
+              type: array
+              items:
+                type: string
+    ReceiptEvent:
+      type: object
+      description: >-
+        m.receipt - read/private read/threaded read receipts for events in a
+        room.
+      properties:
+        type:
+          const: m.receipt
+        content:
+          type: object
+          additionalProperties:
+            type: object
+            description: >-
+              Keyed by event ID. Each value contains a map of receipt types
+              (e.g. m.read, m.read.private, m.fully_read) to user receipt
+              data.
+    PresenceEvent:
+      type: object
+      description: m.presence - a presence update for a user.
+      properties:
+        type:
+          const: m.presence
+        sender:
+          type: string
+        content:
+          type: object
+          properties:
+            presence:
+              type: string
+              enum:
+                - online
+                - offline
+                - unavailable
+            last_active_ago:
+              type: integer
+            status_msg:
+              type: string
+            currently_active:
+              type: boolean
+            displayname:
+              type: string
+            avatar_url:
+              type: string
+    AccountDataEvent:
+      type: object
+      description: >-
+        Global or per-room account_data events. Types include
+        m.fully_read, m.direct, m.push_rules, m.ignored_user_list,
+        m.identity_server, m.tag, and m.secret_storage.*.
+      properties:
+        type:
+          type: string
+        content:
+          type: object
+    ToDeviceEvent:
+      type: object
+      description: >-
+        Direct device-to-device event delivered via the to_device section of
+        /sync. Common types: m.room_key, m.forwarded_room_key,
+        m.room_key_request, m.key.verification.request,
+        m.key.verification.start, m.key.verification.accept,
+        m.key.verification.key, m.key.verification.mac,
+        m.key.verification.done, m.key.verification.cancel,
+        m.secret.request, m.secret.send, m.dummy.
+      properties:
+        type:
+          type: string
+        sender:
+          type: string
+        content:
+          type: object
