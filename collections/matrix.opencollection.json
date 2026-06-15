@@ -1,0 +1,398 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List supported login flows",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/login"
+      },
+      "docs": "List supported login flows"
+    },
+    {
+      "info": {
+        "name": "Authenticate and obtain an access token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/login",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Authenticate and obtain an access token"
+    },
+    {
+      "info": {
+        "name": "Invalidate the current access token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/logout"
+      },
+      "docs": "Invalidate the current access token"
+    },
+    {
+      "info": {
+        "name": "Refresh an access token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/refresh",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Refresh an access token"
+    },
+    {
+      "info": {
+        "name": "Register a new user account",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/register",
+        "params": [
+          {
+            "name": "kind",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Register a new user account"
+    },
+    {
+      "info": {
+        "name": "Get the current user ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/account/whoami"
+      },
+      "docs": "Get the current user ID"
+    },
+    {
+      "info": {
+        "name": "Query server capabilities",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/capabilities"
+      },
+      "docs": "Query server capabilities"
+    },
+    {
+      "info": {
+        "name": "Synchronize client state with the server",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/sync",
+        "params": [
+          {
+            "name": "since",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "timeout",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "full_state",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "set_presence",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "filter",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Synchronize client state with the server"
+    },
+    {
+      "info": {
+        "name": "Create a new room",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/createRoom",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a new room"
+    },
+    {
+      "info": {
+        "name": "Join a room by ID or alias",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/join/:roomIdOrAlias",
+        "params": [
+          {
+            "name": "roomIdOrAlias",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Join a room by ID or alias"
+    },
+    {
+      "info": {
+        "name": "Leave a room",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/rooms/:roomId/leave",
+        "params": [
+          {
+            "name": "roomId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Leave a room"
+    },
+    {
+      "info": {
+        "name": "Invite a user to a room",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/rooms/:roomId/invite",
+        "params": [
+          {
+            "name": "roomId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Invite a user to a room"
+    },
+    {
+      "info": {
+        "name": "Send a message event to a room",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://{homeserver}/_matrix/client/v3/rooms/:roomId/send/:eventType/:txnId",
+        "params": [
+          {
+            "name": "roomId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "eventType",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "txnId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Send a message event to a room"
+    },
+    {
+      "info": {
+        "name": "Get message history for a room",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/rooms/:roomId/messages",
+        "params": [
+          {
+            "name": "roomId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "dir",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "filter",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Get message history for a room"
+    },
+    {
+      "info": {
+        "name": "Look up a room ID by alias",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/directory/room/:roomAlias",
+        "params": [
+          {
+            "name": "roomAlias",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Look up a room ID by alias"
+    },
+    {
+      "info": {
+        "name": "List public rooms in the homeserver directory",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/publicRooms"
+      },
+      "docs": "List public rooms in the homeserver directory"
+    },
+    {
+      "info": {
+        "name": "Retrieve a user profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/profile/:userId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Retrieve a user profile"
+    },
+    {
+      "info": {
+        "name": "Set a profile field (display name or avatar URL)",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://{homeserver}/_matrix/client/v3/profile/:userId/:keyName",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "keyName",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Set a profile field (display name or avatar URL)"
+    },
+    {
+      "info": {
+        "name": "List the current user's devices",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{homeserver}/_matrix/client/v3/devices"
+      },
+      "docs": "List the current user's devices"
+    },
+    {
+      "info": {
+        "name": "Upload end-to-end encryption keys",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{homeserver}/_matrix/client/v3/keys/upload",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Upload end-to-end encryption keys"
+    }
+  ],
+  "bundled": true
+}
