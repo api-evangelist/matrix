@@ -9,7 +9,7 @@ description: >-
   across the federation. Authentication is typically performed via Bearer
   access tokens, with newer flows using OAuth 2.0.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Messaging
   - Decentralized
