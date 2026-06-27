@@ -119,7 +119,7 @@ common:
     url: https://github.com/matrix-org/matrix-spec
   - type: GitHubOrganization
     url: https://github.com/matrix-org
-  - type: SignUp
+  - type: Signup
     url: https://matrix.org/try-matrix/
   - type: Support
     url: https://matrix.org/support/
