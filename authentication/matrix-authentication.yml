@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/matrix-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Matrix access token issued by the homeserver after login, passed as
+    `Authorization: Bearer {access_token}`. Some endpoints (login,
+    register, refresh) do not require authentication.
+  sources:
+  - openapi/matrix-openapi.yml

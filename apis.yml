@@ -109,6 +109,12 @@ apis:
         url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
 
 common:
+  - type: VulnerabilityDisclosure
+    url: security/matrix-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/matrix-domain-security.yml
+  - type: Authentication
+    url: authentication/matrix-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/matrix-org
   - type: Website
@@ -123,6 +129,8 @@ common:
     url: https://matrix.org/try-matrix/
   - type: Support
     url: https://matrix.org/support/
+  - url: https://matrix.org/blog/feed/
+    type: Blog
 
 maintainers:
   - FN: Kin Lane
