@@ -109,6 +109,8 @@ apis:
         url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/matrix-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/matrix-vulnerability-disclosure.yml
   - type: DomainSecurity
