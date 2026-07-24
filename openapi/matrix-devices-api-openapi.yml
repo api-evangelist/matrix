@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Matrix Client-Server Account Devices API
+  version: v3
+  description: 'REST API used by Matrix clients to communicate with a homeserver. Covers
+
+    login, account management, sync, room creation and membership, message
+
+    send and history, profile and presence, device management, end-to-end
+
+    encryption keys, and the public rooms directory. Newer endpoints sit
+
+    under /_matrix/client/v3 with selected features under /v1.
+
+    '
+  contact:
+    name: Matrix.org Foundation
+    url: https://matrix.org
+servers:
+- url: https://{homeserver}/_matrix/client
+  description: Matrix homeserver Client-Server API root
+  variables:
+    homeserver:
+      default: matrix.org
+security:
+- BearerAuth: []
+tags:
+- name: Devices
+paths:
+  /v3/devices:
+    get:
+      summary: List the current user's devices
+      operationId: listDevices
+      responses:
+        '200':
+          description: Devices.
+      tags:
+      - Devices
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Matrix access token issued by the homeserver after login, passed as
+
+        `Authorization: Bearer {access_token}`. Some endpoints (login,
+
+        register, refresh) do not require authentication.
+
+        '

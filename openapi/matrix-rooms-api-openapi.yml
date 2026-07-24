@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Matrix Client-Server Account Rooms API
+  version: v3
+  description: 'REST API used by Matrix clients to communicate with a homeserver. Covers
+
+    login, account management, sync, room creation and membership, message
+
+    send and history, profile and presence, device management, end-to-end
+
+    encryption keys, and the public rooms directory. Newer endpoints sit
+
+    under /_matrix/client/v3 with selected features under /v1.
+
+    '
+  contact:
+    name: Matrix.org Foundation
+    url: https://matrix.org
+servers:
+- url: https://{homeserver}/_matrix/client
+  description: Matrix homeserver Client-Server API root
+  variables:
+    homeserver:
+      default: matrix.org
+security:
+- BearerAuth: []
+tags:
+- name: Rooms
+paths:
+  /v3/rooms/{roomId}/leave:
+    post:
+      summary: Leave a room
+      operationId: leaveRoom
+      parameters:
+      - $ref: '#/components/parameters/RoomId'
+      responses:
+        '200':
+          description: Left.
+      tags:
+      - Rooms
+  /v3/rooms/{roomId}/invite:
+    post:
+      summary: Invite a user to a room
+      operationId: inviteToRoom
+      parameters:
+      - $ref: '#/components/parameters/RoomId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - user_id
+              properties:
+                user_id:
+                  type: string
+      responses:
+        '200':
+          description: Invitation sent.
+      tags:
+      - Rooms
+  /v3/rooms/{roomId}/send/{eventType}/{txnId}:
+    put:
+      summary: Send a message event to a room
+      operationId: sendRoomEvent
+      parameters:
+      - $ref: '#/components/parameters/RoomId'
+      - in: path
+        name: eventType
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: txnId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Event ID returned.
+      tags:
+      - Rooms
+  /v3/rooms/{roomId}/messages:
+    get:
+      summary: Get message history for a room
+      operationId: getRoomMessages
+      parameters:
+      - $ref: '#/components/parameters/RoomId'
+      - in: query
+        name: from
+        schema:
+          type: string
+      - in: query
+        name: to
+        schema:
+          type: string
+      - in: query
+        name: dir
+        schema:
+          type: string
+          enum:
+          - b
+          - f
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: filter
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paginated room messages.
+      tags:
+      - Rooms
+components:
+  parameters:
+    RoomId:
+      in: path
+      name: roomId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Matrix access token issued by the homeserver after login, passed as
+
+        `Authorization: Bearer {access_token}`. Some endpoints (login,
+
+        register, refresh) do not require authentication.
+
+        '
