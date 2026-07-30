@@ -9,7 +9,19 @@ description: >-
   across the federation. Authentication is typically performed via Bearer
   access tokens, with newer flows using OAuth 2.0.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/matrix.png
 tags:
   - Messaging
   - Decentralized
@@ -23,91 +35,239 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: matrix:client-server-api
-    name: Matrix Client-Server API
-    description: >-
-      REST API used by Matrix clients to communicate with a homeserver,
-      covering login, room creation and management, message sending, sync,
-      device management, end-to-end encryption, and push notifications.
-      Authentication uses Bearer access tokens issued by the homeserver, with
-      OAuth 2.0 supported in newer versions.
-    humanURL: https://spec.matrix.org/latest/client-server-api/
-    baseURL: https://matrix.org/_matrix/client
-    tags:
-      - Client-Server
-      - Messaging
-      - Rooms
-      - Sync
-      - Encryption
-    properties:
-      - type: Documentation
-        url: https://spec.matrix.org/latest/client-server-api/
-      - type: OpenAPI Source
-        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/client-server
-  - aid: matrix:server-server-api
-    name: Matrix Server-Server (Federation) API
-    description: >-
-      Federation API that lets Matrix homeservers exchange events, presence,
-      and key information with one another over signed JSON requests.
-    humanURL: https://spec.matrix.org/latest/server-server-api/
-    baseURL: https://matrix.org/_matrix/federation
-    tags:
-      - Federation
-      - Server-Server
-      - Decentralized
-    properties:
-      - type: Documentation
-        url: https://spec.matrix.org/latest/server-server-api/
-      - type: OpenAPI Source
-        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/server-server
-  - aid: matrix:application-service-api
-    name: Matrix Application Service API
-    description: >-
-      API used by application services (bridges, bots) to integrate with a
-      homeserver, claim namespaces, and exchange events.
-    humanURL: https://spec.matrix.org/latest/application-service-api/
-    baseURL: https://matrix.org/_matrix/app
-    tags:
-      - Bridges
-      - Bots
-      - Integrations
-    properties:
-      - type: Documentation
-        url: https://spec.matrix.org/latest/application-service-api/
-      - type: OpenAPI Source
-        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/application-service
-  - aid: matrix:identity-service-api
-    name: Matrix Identity Service API
-    description: >-
-      API for looking up Matrix user IDs from third-party identifiers such as
-      email addresses and phone numbers via federated identity servers.
-    humanURL: https://spec.matrix.org/latest/identity-service-api/
-    baseURL: https://matrix.org/_matrix/identity
-    tags:
-      - Identity
-      - Lookup
-      - 3PID
-    properties:
-      - type: Documentation
-        url: https://spec.matrix.org/latest/identity-service-api/
-      - type: OpenAPI Source
-        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/identity
-  - aid: matrix:push-gateway-api
-    name: Matrix Push Gateway API
-    description: >-
-      Push Gateway API homeservers use to deliver notifications to mobile
-      push services on behalf of Matrix clients.
-    humanURL: https://spec.matrix.org/latest/push-gateway-api/
-    baseURL: https://matrix.org/_matrix/push
-    tags:
-      - Push Notifications
-      - Mobile
-    properties:
-      - type: Documentation
-        url: https://spec.matrix.org/latest/push-gateway-api/
-      - type: OpenAPI Source
-        url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
-
+- aid: matrix:client-server-api
+  name: Matrix Client-Server API
+  description: >-
+    REST API used by Matrix clients to communicate with a homeserver, covering login, room creation and
+    management, message sending, sync, device management, end-to-end encryption, and push notifications.
+    Authentication uses Bearer access tokens issued by the homeserver, with OAuth 2.0 supported in newer
+    versions.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Client-Server
+  - Messaging
+  - Rooms
+  - Sync
+  - Encryption
+  properties:
+  - type: Documentation
+    url: https://spec.matrix.org/latest/client-server-api/
+  - type: OpenAPI Source
+    url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/client-server
+- aid: matrix:server-server-api
+  name: Matrix Server-Server (Federation) API
+  description: >-
+    Federation API that lets Matrix homeservers exchange events, presence, and key information with one
+    another over signed JSON requests.
+  humanURL: https://spec.matrix.org/latest/server-server-api/
+  baseURL: https://matrix.org/_matrix/federation
+  tags:
+  - Federation
+  - Server-Server
+  - Decentralized
+  properties:
+  - type: Documentation
+    url: https://spec.matrix.org/latest/server-server-api/
+  - type: OpenAPI Source
+    url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/server-server
+- aid: matrix:application-service-api
+  name: Matrix Application Service API
+  description: >-
+    API used by application services (bridges, bots) to integrate with a homeserver, claim namespaces,
+    and exchange events.
+  humanURL: https://spec.matrix.org/latest/application-service-api/
+  baseURL: https://matrix.org/_matrix/app
+  tags:
+  - Bridges
+  - Bots
+  - Integrations
+  properties:
+  - type: Documentation
+    url: https://spec.matrix.org/latest/application-service-api/
+  - type: OpenAPI Source
+    url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/application-service
+- aid: matrix:identity-service-api
+  name: Matrix Identity Service API
+  description: >-
+    API for looking up Matrix user IDs from third-party identifiers such as email addresses and phone
+    numbers via federated identity servers.
+  humanURL: https://spec.matrix.org/latest/identity-service-api/
+  baseURL: https://matrix.org/_matrix/identity
+  tags:
+  - Identity
+  - Lookup
+  - 3PID
+  properties:
+  - type: Documentation
+    url: https://spec.matrix.org/latest/identity-service-api/
+  - type: OpenAPI Source
+    url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/identity
+- aid: matrix:push-gateway-api
+  name: Matrix Push Gateway API
+  description: >-
+    Push Gateway API homeservers use to deliver notifications to mobile push services on behalf of Matrix
+    clients.
+  humanURL: https://spec.matrix.org/latest/push-gateway-api/
+  baseURL: https://matrix.org/_matrix/push
+  tags:
+  - Push Notifications
+  - Mobile
+  properties:
+  - type: Documentation
+    url: https://spec.matrix.org/latest/push-gateway-api/
+  - type: OpenAPI Source
+    url: https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway
+- aid: matrix:matrix-account-api
+  name: Matrix Account API
+  description: The Account API from Matrix — 1 operation(s) for account.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-account-api-openapi.yml
+- aid: matrix:matrix-capabilities-api
+  name: Matrix Capabilities API
+  description: The Capabilities API from Matrix — 1 operation(s) for capabilities.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Capabilities
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-capabilities-api-openapi.yml
+- aid: matrix:matrix-createroom-api
+  name: Matrix CreateRoom API
+  description: The CreateRoom API from Matrix — 1 operation(s) for createroom.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - CreateRoom
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-createroom-api-openapi.yml
+- aid: matrix:matrix-devices-api
+  name: Matrix Devices API
+  description: The Devices API from Matrix — 1 operation(s) for devices.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-devices-api-openapi.yml
+- aid: matrix:matrix-directory-api
+  name: Matrix Directory API
+  description: The Directory API from Matrix — 1 operation(s) for directory.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Directory
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-directory-api-openapi.yml
+- aid: matrix:matrix-join-api
+  name: Matrix Join API
+  description: The Join API from Matrix — 1 operation(s) for join.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Join
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-join-api-openapi.yml
+- aid: matrix:matrix-keys-api
+  name: Matrix Keys API
+  description: The Keys API from Matrix — 1 operation(s) for keys.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-keys-api-openapi.yml
+- aid: matrix:matrix-login-api
+  name: Matrix Login API
+  description: The Login API from Matrix — 1 operation(s) for login.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-login-api-openapi.yml
+- aid: matrix:matrix-logout-api
+  name: Matrix Logout API
+  description: The Logout API from Matrix — 1 operation(s) for logout.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Logout
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-logout-api-openapi.yml
+- aid: matrix:matrix-profile-api
+  name: Matrix Profile API
+  description: The Profile API from Matrix — 2 operation(s) for profile.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-profile-api-openapi.yml
+- aid: matrix:matrix-publicrooms-api
+  name: Matrix PublicRooms API
+  description: The PublicRooms API from Matrix — 1 operation(s) for publicrooms.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - PublicRooms
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-publicrooms-api-openapi.yml
+- aid: matrix:matrix-refresh-api
+  name: Matrix Refresh API
+  description: The Refresh API from Matrix — 1 operation(s) for refresh.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Refresh
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-refresh-api-openapi.yml
+- aid: matrix:matrix-register-api
+  name: Matrix Register API
+  description: The Register API from Matrix — 1 operation(s) for register.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Register
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-register-api-openapi.yml
+- aid: matrix:matrix-rooms-api
+  name: Matrix Rooms API
+  description: The Rooms API from Matrix — 4 operation(s) for rooms.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Rooms
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-rooms-api-openapi.yml
+- aid: matrix:matrix-sync-api
+  name: Matrix Sync API
+  description: The Sync API from Matrix — 1 operation(s) for sync.
+  humanURL: https://spec.matrix.org/latest/client-server-api/
+  baseURL: https://matrix.org/_matrix/client
+  tags:
+  - Sync
+  properties:
+  - type: OpenAPI
+    url: openapi/matrix-sync-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/matrix-agentic-access.yml
