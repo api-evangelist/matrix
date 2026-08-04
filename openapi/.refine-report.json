@@ -1,0 +1,42 @@
+{
+  "provider": "matrix",
+  "sources": [
+    "matrix-account-api-openapi.yml",
+    "matrix-capabilities-api-openapi.yml",
+    "matrix-createroom-api-openapi.yml",
+    "matrix-devices-api-openapi.yml",
+    "matrix-directory-api-openapi.yml",
+    "matrix-join-api-openapi.yml",
+    "matrix-keys-api-openapi.yml",
+    "matrix-login-api-openapi.yml",
+    "matrix-logout-api-openapi.yml",
+    "matrix-profile-api-openapi.yml",
+    "matrix-publicrooms-api-openapi.yml",
+    "matrix-refresh-api-openapi.yml",
+    "matrix-register-api-openapi.yml",
+    "matrix-rooms-api-openapi.yml",
+    "matrix-sync-api-openapi.yml"
+  ],
+  "outputs": [
+    "matrix-account-api-openapi.yml",
+    "matrix-capabilities-api-openapi.yml",
+    "matrix-createroom-api-openapi.yml",
+    "matrix-devices-api-openapi.yml",
+    "matrix-directory-api-openapi.yml",
+    "matrix-join-api-openapi.yml",
+    "matrix-keys-api-openapi.yml",
+    "matrix-login-api-openapi.yml",
+    "matrix-logout-api-openapi.yml",
+    "matrix-profile-api-openapi.yml",
+    "matrix-publicrooms-api-openapi.yml",
+    "matrix-refresh-api-openapi.yml",
+    "matrix-register-api-openapi.yml",
+    "matrix-rooms-api-openapi.yml",
+    "matrix-sync-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
