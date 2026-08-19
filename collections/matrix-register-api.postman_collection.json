@@ -1,0 +1,171 @@
+{
+  "item": [
+    {
+      "id": "75d07ea5-2330-4736-8de3-b89d63aece47",
+      "name": "Register",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ae6d1e9-ab3b-4723-973b-f811c095c99d",
+          "name": "Register a new user account",
+          "request": {
+            "name": "Register a new user account",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{homeserver}}",
+                  "key": "homeserver"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d103c83e-3799-4cd5-9952-adf87923a6c5",
+              "name": "Account created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{homeserver}}",
+                      "key": "homeserver"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "matrix.org",
+      "key": "homeserver"
+    },
+    {
+      "type": "string",
+      "value": "https://{{homeserver}}/_matrix/client",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "093fa868-e066-4bce-b9a2-ec9cd6d823b7",
+    "name": "Matrix Client-Server Account Register API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API used by Matrix clients to communicate with a homeserver. Covers\nlogin, account management, sync, room creation and membership, message\nsend and history, profile and presence, device management, end-to-end\nencryption keys, and the public rooms directory. Newer endpoints sit\nunder /_matrix/client/v3 with selected features under /v1.\n\n\nContact Support:\n Name: Matrix.org Foundation",
+      "type": "text/plain"
+    }
+  }
+}

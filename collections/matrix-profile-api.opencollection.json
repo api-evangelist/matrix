@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account Profile API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{homeserver}/_matrix/client/v3/profile/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a user profile"
+        },
+        {
+          "info": {
+            "name": "Set a profile field (display name or avatar URL)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{homeserver}/_matrix/client/v3/profile/:userId/:keyName",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "keyName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a profile field (display name or avatar URL)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

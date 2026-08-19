@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "5dc26a1f-bc96-4332-a6a8-81db4533c475",
+      "name": "Keys",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14186530-b3f2-4343-a83e-1dcaa83dffe1",
+          "name": "Upload end-to-end encryption keys",
+          "request": {
+            "name": "Upload end-to-end encryption keys",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "keys",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{homeserver}}",
+                  "key": "homeserver"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7a1946e-4471-462f-bc11-a56acf096f17",
+              "name": "Counts of one-time keys remaining.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "keys",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{homeserver}}",
+                      "key": "homeserver"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "matrix.org",
+      "key": "homeserver"
+    },
+    {
+      "type": "string",
+      "value": "https://{{homeserver}}/_matrix/client",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d540b8e-89e4-44a3-9d32-89c6b84d49b8",
+    "name": "Matrix Client-Server Account Keys API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API used by Matrix clients to communicate with a homeserver. Covers\nlogin, account management, sync, room creation and membership, message\nsend and history, profile and presence, device management, end-to-end\nencryption keys, and the public rooms directory. Newer endpoints sit\nunder /_matrix/client/v3 with selected features under /v1.\n\n\nContact Support:\n Name: Matrix.org Foundation",
+      "type": "text/plain"
+    }
+  }
+}

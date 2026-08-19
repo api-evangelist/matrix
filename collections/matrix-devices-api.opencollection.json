@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account Devices API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the current user's devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{homeserver}/_matrix/client/v3/devices"
+          },
+          "docs": "List the current user's devices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

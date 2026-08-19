@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account Sync API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sync",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Synchronize client state with the server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{homeserver}/_matrix/client/v3/sync",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timeout",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "full_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "set_presence",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Synchronize client state with the server"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account Join API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Join",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Join a room by ID or alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{homeserver}/_matrix/client/v3/join/:roomIdOrAlias",
+            "params": [
+              {
+                "name": "roomIdOrAlias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Join a room by ID or alias"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

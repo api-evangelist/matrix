@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account CreateRoom API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CreateRoom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{homeserver}/_matrix/client/v3/createRoom",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new room"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

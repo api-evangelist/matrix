@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Matrix Client-Server Account Login API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List supported login flows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{homeserver}/_matrix/client/v3/login"
+          },
+          "docs": "List supported login flows"
+        },
+        {
+          "info": {
+            "name": "Authenticate and obtain an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{homeserver}/_matrix/client/v3/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticate and obtain an access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
