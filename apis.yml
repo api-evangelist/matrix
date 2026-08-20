@@ -81,6 +81,10 @@ apis:
   tags:
   - Bridges
   - Bots
+  - Integration
+  tags_raw:
+  - Bridges
+  - Bots
   - Integrations
   properties:
   - type: Documentation
