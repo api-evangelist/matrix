@@ -93,7 +93,7 @@ apis:
   humanURL: https://spec.matrix.org/latest/application-service-api/
   baseURL: https://matrix.org/_matrix/app
   tags:
-  - Bridges
+  - Bridge
   - Bots
   - Integration
   tags_raw:
@@ -232,6 +232,8 @@ apis:
   humanURL: https://spec.matrix.org/latest/client-server-api/
   baseURL: https://matrix.org/_matrix/client
   tags:
+  - Profiles
+  tags_raw:
   - Profile
   properties:
   - type: OpenAPI
