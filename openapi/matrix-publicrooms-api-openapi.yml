@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Matrix Client-Server Account PublicRooms API
+  title: Matrix Client-Server Public Rooms API
   version: v3
   description: 'REST API used by Matrix clients to communicate with a homeserver. Covers
 
@@ -10,9 +10,7 @@ info:
 
     encryption keys, and the public rooms directory. Newer endpoints sit
 
-    under /_matrix/client/v3 with selected features under /v1.
-
-    '
+    under /_matrix/client/v3 with selected features under /v1.'
   contact:
     name: Matrix.org Foundation
     url: https://matrix.org
