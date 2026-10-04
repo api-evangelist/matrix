@@ -244,6 +244,8 @@ apis:
   humanURL: https://spec.matrix.org/latest/client-server-api/
   baseURL: https://matrix.org/_matrix/client
   tags:
+  - Public Rooms
+  tags_raw:
   - PublicRooms
   properties:
   - type: OpenAPI
