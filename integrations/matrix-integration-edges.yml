@@ -25,9 +25,143 @@ edges:
     builder: n8n (built-in node)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Beeper
+  partner: beeper
+  partner_match: domain
+  type: coverage
+  marketplace: matrix-ecosystem
+  channel: standard-directory
+  relationship: system-coverage
+  direction: partner-built
+  evidence: https://matrix.org/ecosystem/bridges/line/#beeper-line
+  category: Matrix protocol ecosystem
+  contract_reference:
+    register: Matrix.org Foundation ecosystem directory (matrix.org/ecosystem)
+    standard: Matrix
+    spec_file: null
+    role: matrix-bridge
+    roles:
+    - matrix-bridge
+    registered_name: beeper, highesttt
+    register_id: https://matrix.org/ecosystem/bridges/line/#beeper-line
+    matched_domain: beeper.com
+    matched_by: domain
+    match_note: author 'beeper' + listing link www.beeper.com
+    listings:
+    - maturity: Obsolete
+      name: android-sms
+      network: SMS
+      obsolete: true
+      page: https://matrix.org/ecosystem/bridges/sms/#android-sms
+      section: bridges
+    - maturity: Stable
+      name: beeper-line
+      network: LINE
+      obsolete: false
+      page: https://matrix.org/ecosystem/bridges/line/#beeper-line
+      section: bridges
+    - maturity: Stable
+      name: mautrix-slack
+      network: Slack
+      obsolete: false
+      page: https://matrix.org/ecosystem/bridges/slack/#mautrix-slack
+      section: bridges
+    all_obsolete: false
+    signal_note: 'participation only: a listing in the Foundation''s directory (it endorses nothing, certifies nothing).
+      Roles are context; listings are never counted'
+    detected_by: sweep-matrix-ecosystem.py
+    detected: '2026-10-23'
+  detected_by: sweep-matrix-ecosystem.py
+  first_seen: '2026-10-23'
+  partner_url: https://beeper.com
+- partner_name: Mattermost
+  partner: mattermost
+  partner_match: register-name
+  type: coverage
+  marketplace: matrix-ecosystem
+  channel: standard-directory
+  relationship: system-coverage
+  direction: partner-built
+  evidence: https://matrix.org/ecosystem/bridges/mattermost/#matrix-as-mm
+  category: Matrix protocol ecosystem
+  contract_reference:
+    register: Matrix.org Foundation ecosystem directory (matrix.org/ecosystem)
+    standard: Matrix
+    spec_file: null
+    role: matrix-bridge
+    roles:
+    - matrix-bridge
+    registered_name: Mattermost / Jan Ostgren
+    register_id: https://matrix.org/ecosystem/bridges/mattermost/#matrix-as-mm
+    matched_domain: null
+    matched_by: register-name
+    match_note: register-name 'mattermost' = mattermost; wikidata P856 mattermost.com agrees or unheld
+    listings:
+    - maturity: Beta
+      name: matrix-as-mm
+      network: Mattermost
+      obsolete: false
+      page: https://matrix.org/ecosystem/bridges/mattermost/#matrix-as-mm
+      section: bridges
+    all_obsolete: false
+    signal_note: 'participation only: a listing in the Foundation''s directory (it endorses nothing, certifies nothing).
+      Roles are context; listings are never counted'
+    detected_by: sweep-matrix-ecosystem.py
+    detected: '2026-10-23'
+    register_name_note: register-name 'mattermost' = mattermost; wikidata P856 mattermost.com agrees or unheld
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-matrix-ecosystem.py
+  first_seen: '2026-10-23'
+- partner_name: Synapse
+  partner: synapse
+  partner_match: register
+  type: coverage
+  marketplace: matrix-ecosystem
+  channel: standard-directory
+  relationship: system-coverage
+  direction: partner-built
+  evidence: https://matrix.org/ecosystem/servers/
+  category: Matrix protocol ecosystem
+  contract_reference:
+    register: Matrix.org Foundation ecosystem directory (matrix.org/ecosystem)
+    standard: Matrix
+    spec_file: null
+    role: matrix-server
+    roles:
+    - matrix-server
+    registered_name: Element Creations Ltd.
+    register_id: https://matrix.org/ecosystem/servers/
+    matched_domain: null
+    matched_by: hand-verified
+    match_note: servers listing 'Synapse' (Element Creations Ltd.) points at github.com/element-hq/synapse, the
+      repository all/synapse records as deliveryModel.license_evidence.repo; 'Synapse' alone is ambiguous (synapse,
+      synapsefi)
+    listings:
+    - maturity: Stable
+      name: Synapse
+      obsolete: false
+      page: https://matrix.org/ecosystem/servers/
+      section: servers
+    all_obsolete: false
+    signal_note: 'participation only: a listing in the Foundation''s directory (it endorses nothing, certifies nothing).
+      Roles are context; listings are never counted'
+    detected_by: sweep-matrix-ecosystem.py
+    detected: '2026-10-23'
+  detected_by: sweep-matrix-ecosystem.py
+  first_seen: '2026-10-23'
 method: searched
 checked:
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
 - https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/
+- https://matrix.org/ecosystem/
+- https://matrix.org/ecosystem/bridges/
+- https://matrix.org/ecosystem/clients/
+- https://matrix.org/ecosystem/distributions/
+- https://matrix.org/ecosystem/hosting/
+- https://matrix.org/ecosystem/integrations/
+- https://matrix.org/ecosystem/sdks/
+- https://matrix.org/ecosystem/servers/
 source:
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
