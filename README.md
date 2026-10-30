@@ -1,4 +1,4 @@
-# Matrix (matrix)
+# Matrix
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,140 +66,151 @@
 
 Matrix is an open standard and decentralized protocol for real-time communication, providing federated messaging, voice, video, and IoT signalling across independently operated homeservers. The Matrix specification defines several REST APIs (Client-Server, Server-Server, Application Service, Identity Service, and Push Gateway) that interoperate across the federation. Authentication is typically performed via Bearer access tokens, with newer flows using OAuth 2.0.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/matrix/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/matrix/refs/heads/main/apis.yml)
+**Areas:** Messaging · Decentralized · Federated · Open Standard · Real-Time Communication · VoIP · Matrix
 
-## Scope
+## Matrix on APIs.io
 
-- **Type:** Index
+Everything profiled for Matrix is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/matrix/](https://apis.io/providers/matrix/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (20)
 
-- Messaging
-- Decentralized
-- Federated
-- Open Standard
-- Real-Time Communication
-- VoIP
+- [Matrix Client-Server API](https://apis.io/apis/matrix/client-server-api/) — REST API used by Matrix clients to communicate with a homeserver, covering login, room creation and management, message sending, sync, device management,…
+- [Matrix Server-Server (Federation) API](https://apis.io/apis/matrix/server-server-api/) — Federation API that lets Matrix homeservers exchange events, presence, and key information with one another over signed JSON requests.
+- [Matrix Application Service API](https://apis.io/apis/matrix/application-service-api/) — API used by application services (bridges, bots) to integrate with a homeserver, claim namespaces, and exchange events.
+- [Matrix Identity Service API](https://apis.io/apis/matrix/identity-service-api/) — API for looking up Matrix user IDs from third-party identifiers such as email addresses and phone numbers via federated identity servers.
+- [Matrix Push Gateway API](https://apis.io/apis/matrix/push-gateway-api/) — Push Gateway API homeservers use to deliver notifications to mobile push services on behalf of Matrix clients.
+- [Matrix Account API](https://apis.io/apis/matrix/matrix-account-api/) — The Account API from Matrix — 1 operation(s) for account.
+- [Matrix Capabilities API](https://apis.io/apis/matrix/matrix-capabilities-api/) — The Capabilities API from Matrix — 1 operation(s) for capabilities.
+- [Matrix CreateRoom API](https://apis.io/apis/matrix/matrix-createroom-api/) — The CreateRoom API from Matrix — 1 operation(s) for createroom.
+- [Matrix Devices API](https://apis.io/apis/matrix/matrix-devices-api/) — The Devices API from Matrix — 1 operation(s) for devices.
+- [Matrix Directory API](https://apis.io/apis/matrix/matrix-directory-api/) — The Directory API from Matrix — 1 operation(s) for directory.
+- [Matrix Join API](https://apis.io/apis/matrix/matrix-join-api/) — The Join API from Matrix — 1 operation(s) for join.
+- [Matrix Keys API](https://apis.io/apis/matrix/matrix-keys-api/) — The Keys API from Matrix — 1 operation(s) for keys.
+- [Matrix Login API](https://apis.io/apis/matrix/matrix-login-api/) — The Login API from Matrix — 1 operation(s) for login.
+- [Matrix Logout API](https://apis.io/apis/matrix/matrix-logout-api/) — The Logout API from Matrix — 1 operation(s) for logout.
+- [Matrix Profile API](https://apis.io/apis/matrix/matrix-profile-api/) — The Profile API from Matrix — 2 operation(s) for profile.
+- [Matrix PublicRooms API](https://apis.io/apis/matrix/matrix-publicrooms-api/) — The PublicRooms API from Matrix — 1 operation(s) for publicrooms.
+- [Matrix Refresh API](https://apis.io/apis/matrix/matrix-refresh-api/) — The Refresh API from Matrix — 1 operation(s) for refresh.
+- [Matrix Register API](https://apis.io/apis/matrix/matrix-register-api/) — The Register API from Matrix — 1 operation(s) for register.
+- [Matrix Rooms API](https://apis.io/apis/matrix/matrix-rooms-api/) — The Rooms API from Matrix — 4 operation(s) for rooms.
+- [Matrix Sync API](https://apis.io/apis/matrix/matrix-sync-api/) — The Sync API from Matrix — 1 operation(s) for sync.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Matrix Client-Server API
+Event-driven and webhook contracts.
 
-REST API used by Matrix clients to communicate with a homeserver, covering login, room creation and management, message sending, sync, device management, end-to-end encryption, and push notifications. Authentication uses Bearer access tokens issued by the homeserver, with OAuth 2.0 supported in newer versions.
+- [Matrix Client-Server Sync API](https://apis.io/asyncapis/matrix/matrix-sync-asyncapi/)
 
-- **Human URL:** [https://spec.matrix.org/latest/client-server-api/](https://spec.matrix.org/latest/client-server-api/)
-- **Base URL:** `https://matrix.org/_matrix/client`
+#### Event channels (1)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Client-Server
-- Messaging
-- Rooms
-- Sync
-- Encryption
+- [/v3/sync](https://apis.io/channels/matrix/v3-sync/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://spec.matrix.org/latest/client-server-api/)
-- [Open A P I  Source](https://github.com/matrix-org/matrix-spec/tree/main/data/api/client-server)
-- [Postman Collection](collections/matrix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/matrix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Matrix Server-Server (Federation) API
+- [Matrix Agentic Access](https://apis.io/agentic-access/matrix/matrix-agentic-access/)
 
-Federation API that lets Matrix homeservers exchange events, presence, and key information with one another over signed JSON requests.
+#### Collections (16)
 
-- **Human URL:** [https://spec.matrix.org/latest/server-server-api/](https://spec.matrix.org/latest/server-server-api/)
-- **Base URL:** `https://matrix.org/_matrix/federation`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Matrix Client-Server API](https://apis.io/collections/matrix/open-matrix/)
+- [Matrix Client-Server Account API](https://apis.io/collections/matrix/open-matrix-account-api/)
+- [Matrix Client-Server Account Capabilities API](https://apis.io/collections/matrix/open-matrix-capabilities-api/)
+- [Matrix Client-Server Account CreateRoom API](https://apis.io/collections/matrix/open-matrix-createroom-api/)
+- [Matrix Client-Server Account Devices API](https://apis.io/collections/matrix/open-matrix-devices-api/)
+- [Matrix Client-Server Account Directory API](https://apis.io/collections/matrix/open-matrix-directory-api/)
+- [Matrix Client-Server Account Join API](https://apis.io/collections/matrix/open-matrix-join-api/)
+- [Matrix Client-Server Account Keys API](https://apis.io/collections/matrix/open-matrix-keys-api/)
+- [Matrix Client-Server Account Login API](https://apis.io/collections/matrix/open-matrix-login-api/)
+- [Matrix Client-Server Account Logout API](https://apis.io/collections/matrix/open-matrix-logout-api/)
+- [Matrix Client-Server Account Profile API](https://apis.io/collections/matrix/open-matrix-profile-api/)
+- [Matrix Client-Server Account PublicRooms API](https://apis.io/collections/matrix/open-matrix-publicrooms-api/)
+- [Matrix Client-Server Account Refresh API](https://apis.io/collections/matrix/open-matrix-refresh-api/)
+- [Matrix Client-Server Account Register API](https://apis.io/collections/matrix/open-matrix-register-api/)
+- [Matrix Client-Server Account Rooms API](https://apis.io/collections/matrix/open-matrix-rooms-api/)
+- [Matrix Client-Server Account Sync API](https://apis.io/collections/matrix/open-matrix-sync-api/)
 
-- Federation
-- Server-Server
-- Decentralized
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://spec.matrix.org/latest/server-server-api/)
-- [Open A P I  Source](https://github.com/matrix-org/matrix-spec/tree/main/data/api/server-server)
-- [Postman Collection](collections/matrix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/matrix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Matrix — asyncapi rules](https://apis.io/rules/matrix/matrix-asyncapi-spectral-rules/)
 
-### Matrix Application Service API
+#### Security (3)
 
-API used by application services (bridges, bots) to integrate with a homeserver, claim namespaces, and exchange events.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://spec.matrix.org/latest/application-service-api/](https://spec.matrix.org/latest/application-service-api/)
-- **Base URL:** `https://matrix.org/_matrix/app`
+- [Matrix Authentication](https://apis.io/security/matrix/matrix-authentication/)
+- [Matrix Domain Security](https://apis.io/security/matrix/matrix-domain-security/)
+- [Matrix Vulnerability Disclosure](https://apis.io/security/matrix/matrix-vulnerability-disclosure/)
 
-#### Tags
+## Where to find this API
 
-- Bridges
-- Bots
-- Integrations
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://spec.matrix.org/latest/application-service-api/)
-- [Open A P I  Source](https://github.com/matrix-org/matrix-spec/tree/main/data/api/application-service)
-- [Postman Collection](collections/matrix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/matrix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Matrix Identity Service API
-
-API for looking up Matrix user IDs from third-party identifiers such as email addresses and phone numbers via federated identity servers.
-
-- **Human URL:** [https://spec.matrix.org/latest/identity-service-api/](https://spec.matrix.org/latest/identity-service-api/)
-- **Base URL:** `https://matrix.org/_matrix/identity`
-
-#### Tags
-
-- Identity
-- Lookup
-- 3PID
-
-#### Properties
-
-- [Documentation](https://spec.matrix.org/latest/identity-service-api/)
-- [Open A P I  Source](https://github.com/matrix-org/matrix-spec/tree/main/data/api/identity)
-- [Postman Collection](collections/matrix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/matrix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Matrix Push Gateway API
-
-Push Gateway API homeservers use to deliver notifications to mobile push services on behalf of Matrix clients.
-
-- **Human URL:** [https://spec.matrix.org/latest/push-gateway-api/](https://spec.matrix.org/latest/push-gateway-api/)
-- **Base URL:** `https://matrix.org/_matrix/push`
-
-#### Tags
-
-- Push Notifications
-- Mobile
-
-#### Properties
-
-- [Documentation](https://spec.matrix.org/latest/push-gateway-api/)
-- [Open A P I  Source](https://github.com/matrix-org/matrix-spec/tree/main/data/api/push-gateway)
-- [Postman Collection](collections/matrix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/matrix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/matrix-org)
 - [Website](https://matrix.org)
 - [Documentation](https://spec.matrix.org/latest/)
-- [Specification  Repository](https://github.com/matrix-org/matrix-spec)
-- [GitHub Organization](https://github.com/matrix-org)
-- [Sign Up](https://matrix.org/try-matrix/)
 - [Support](https://matrix.org/support/)
+- [Blog](https://matrix.org/blog/feed/)
+- [GitHub](https://github.com/matrix-org)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 49.7 |
+| Contract governance | 11.4 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 13.2 |
+
+**Agent readiness 18.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/matrix/](https://apis.io/providers/matrix/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Matrix: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/matrix/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
